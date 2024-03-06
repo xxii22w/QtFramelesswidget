@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/">
+        <file>frameless_images/icon_window_close.png</file>
+        <file>frameless_images/icon_window_maximize.png</file>
+        <file>frameless_images/icon_window_minimize.png</file>
+        <file>frameless_images/icon_window_restore.png</file>
+        <file>frameless_images/light_window_close.png</file>
+        <file>frameless_images/light_window_maximize.png</file>
+        <file>frameless_images/light_window_minimize.png</file>
+        <file>frameless_images/light_window_restore.png</file>
+        <file>frameless_images/note_button.png</file>
+        <file>frameless_images/skin_button.png</file>
+        <file>frameless_images/title_logo.png</file>
+    </qresource>
+</RCC>
