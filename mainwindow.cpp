@@ -1,7 +1,5 @@
 ﻿/**************************************************
 **
-** Copyright (C) 2022 zhouxuan.
-** Contact: 微信公众号【周旋机器视觉】
 **
 ** 主窗口类，可以在该处实现自己的界面设计。
 **
@@ -23,8 +21,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::init()
 {
-    if (this->objectName().isEmpty())
-        this->setObjectName("MainWindow");
+
     this->resize(903, 535);
     this->setMinimumSize(QSize(800, 0));
     actionsave = new QAction(this);
@@ -124,36 +121,31 @@ void MainWindow::init()
     tabWidget->setCurrentIndex(0);
     toolBox->setCurrentIndex(0);
 
-    this->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-    actionsave->setText(QCoreApplication::translate("MainWindow", "save", nullptr));
-    actionload->setText(QCoreApplication::translate("MainWindow", "load", nullptr));
-    actionset->setText(QCoreApplication::translate("MainWindow", "set", nullptr));
-    actionskin->setText(QCoreApplication::translate("MainWindow", "skin", nullptr));
-    actionfile->setText(QCoreApplication::translate("MainWindow", "file", nullptr));
+    this->setWindowTitle("MainWindow");
 
-    const bool __sortingEnabled = listWidget->isSortingEnabled();
+    const bool sortingEnabled = listWidget->isSortingEnabled();
     listWidget->setSortingEnabled(false);
-    QListWidgetItem* ___qlistwidgetitem = listWidget->item(0);
-    ___qlistwidgetitem->setText(QCoreApplication::translate("MainWindow", "\346\226\260\345\273\272\351\241\271\347\233\256", nullptr));
-    QListWidgetItem* ___qlistwidgetitem1 = listWidget->item(1);
-    ___qlistwidgetitem1->setText(QCoreApplication::translate("MainWindow", "\346\226\260\345\273\272\351\241\271\347\233\256", nullptr));
-    QListWidgetItem* ___qlistwidgetitem2 = listWidget->item(2);
-    ___qlistwidgetitem2->setText(QCoreApplication::translate("MainWindow", "\346\226\260\345\273\272\351\241\271\347\233\256", nullptr));
-    listWidget->setSortingEnabled(__sortingEnabled);
+    QListWidgetItem* listwidget1 = listWidget->item(0);
+    listwidget1->setText("新建项目");
+    QListWidgetItem* listwidget2 = listWidget->item(1);
+    listwidget2->setText("新建项目");
+    QListWidgetItem* listwidget3 = listWidget->item(2);
+    listwidget3->setText("新建项目");
+    listWidget->setSortingEnabled(sortingEnabled);
 
-    pushButton->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
-    checkBox->setText(QCoreApplication::translate("MainWindow", "CheckBox", nullptr));
-    pushButton_2->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
-    tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("MainWindow", "Tab 1", nullptr));
-    radioButton->setText(QCoreApplication::translate("MainWindow", "RadioButton", nullptr));
-    tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("MainWindow", "Tab 2", nullptr));
-    tabWidget->setTabText(tabWidget->indexOf(tab_3), QCoreApplication::translate("MainWindow", "Tab 3", nullptr));
-    label->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
-    tabWidget->setTabText(tabWidget->indexOf(tab_4), QCoreApplication::translate("MainWindow", "Tab 4", nullptr));
-    groupBox->setTitle(QCoreApplication::translate("MainWindow", "GroupBox", nullptr));
-    radioButton_2->setText(QCoreApplication::translate("MainWindow", "RadioButton", nullptr));
-    checkBox_2->setText(QCoreApplication::translate("MainWindow", "CheckBox", nullptr));
-    toolBox->setItemText(toolBox->indexOf(page), QCoreApplication::translate("MainWindow", "Page 1", nullptr));
-    toolBox->setItemText(toolBox->indexOf(page_2), QCoreApplication::translate("MainWindow", "Page 2", nullptr));
+    pushButton->setText("PushButton");
+    checkBox->setText("CheckBox");
+    pushButton_2->setText("PushButton");
+    tabWidget->setTabText(tabWidget->indexOf(tab),"Tab 1");
+    radioButton->setText("RadioButton");
+    tabWidget->setTabText(tabWidget->indexOf(tab_2),"Tab 2");
+    tabWidget->setTabText(tabWidget->indexOf(tab_3),"Tab 3");
+    label->setText(  "TextLabel");
+    tabWidget->setTabText(tabWidget->indexOf(tab_4),"Tab 4");
+    groupBox->setTitle(  "GroupBox");
+    radioButton_2->setText(  "RadioButton");
+    checkBox_2->setText(  "CheckBox");
+    toolBox->setItemText(toolBox->indexOf(page),"Page 1");
+    toolBox->setItemText(toolBox->indexOf(page_2),"Page 2");
 }
 

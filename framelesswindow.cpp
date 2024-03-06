@@ -1,7 +1,5 @@
 ﻿/**************************************************
 **
-** Copyright (C) 2022 zhouxuan.
-** Contact: 微信公众号【周旋机器视觉】
 **
 ** framelesswindow无边框窗口类，为整个应用程序的基本窗口类，具备
 ** 1、无边框扁平化窗口
@@ -20,7 +18,8 @@ FramelessWindow::FramelessWindow(QWidget* parent) :
     titlebar(new TitleBar(this))
 {
     initui();
-    Content_widget->setMinimumSize(200, 200);
+
+    this->setMinimumSize(900, 800);
 
     //【1】将窗口设为无边框窗口
     setWindowFlags(Qt::FramelessWindowHint | Qt::WindowSystemMenuHint);
@@ -62,19 +61,15 @@ void FramelessWindow::setContent(QWidget* w)
 
 void FramelessWindow::initui()
 {
-    if (this->objectName().isEmpty())
-        this->setObjectName("FramelessWindow");
+
     this->resize(1000, 800);
-    QSizePolicy sizePolicy(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Preferred);
-    sizePolicy.setHorizontalStretch(0);
-    sizePolicy.setVerticalStretch(0);
-    sizePolicy.setHeightForWidth(this->sizePolicy().hasHeightForWidth());
-    this->setSizePolicy(sizePolicy);
-    this->setMinimumSize(QSize(10, 10));
-    verticalLayout_5 = new QVBoxLayout(this);
-    verticalLayout_5->setSpacing(6);
-    verticalLayout_5->setObjectName("verticalLayout_5");
-    verticalLayout_5->setContentsMargins(5, 5, 5, 5);
+
+
+    TotalVLayout = new QVBoxLayout(this);
+    TotalVLayout->setSpacing(6);
+    TotalVLayout->setObjectName("TotalVLayout");
+    TotalVLayout->setContentsMargins(5, 5, 5, 5);
+
     Content_widget = new QWidget(this);
     Content_widget->setObjectName("Content_widget");
     Content_widget->setStyleSheet(QString::fromUtf8("#Content_widget{\n"
@@ -82,57 +77,40 @@ void FramelessWindow::initui()
         "border-radius:5px 5px 5px 5px; \n"
         "background-color:palette(Window);\n"
         "}"));
+
+    // 整体竖直布局
     verticalLayout = new QVBoxLayout(Content_widget);
     verticalLayout->setSpacing(6);
     verticalLayout->setObjectName("verticalLayout");
     verticalLayout->setContentsMargins(1, 1, 1, 1);
+
+    // 标题栏是content_widget的子类
     titlebarContent_widget = new QWidget(Content_widget);
     titlebarContent_widget->setObjectName("titlebarContent_widget");
-    QSizePolicy sizePolicy1(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Fixed);
-    sizePolicy1.setHorizontalStretch(0);
-    sizePolicy1.setVerticalStretch(0);
-    sizePolicy1.setHeightForWidth(titlebarContent_widget->sizePolicy().hasHeightForWidth());
-    titlebarContent_widget->setSizePolicy(sizePolicy1);
-    titlebarContent_widget->setMinimumSize(QSize(0, 20));
-    verticalLayout_4 = new QVBoxLayout(titlebarContent_widget);
-    verticalLayout_4->setSpacing(0);
-    verticalLayout_4->setObjectName("verticalLayout_4");
-    verticalLayout_4->setContentsMargins(0, 0, 0, 0);
-    horizontalLayout = new QHBoxLayout();
-    horizontalLayout->setSpacing(0);
-    horizontalLayout->setObjectName("horizontalLayout");
 
-    verticalLayout_4->addLayout(horizontalLayout);
-
-
+    // 对标题栏进行水平布局
+    titleHLayout = new QHBoxLayout(titlebarContent_widget);
+    titleHLayout->setSpacing(0);
+    titleHLayout->setObjectName("titleHLayout");
+    titleHLayout->setContentsMargins(0, 0, 0, 0);
+    // 加入总布局
     verticalLayout->addWidget(titlebarContent_widget);
 
     windowContent_widget = new QWidget(Content_widget);
     windowContent_widget->setObjectName("windowContent_widget");
-    QSizePolicy sizePolicy2(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Expanding);
-    sizePolicy2.setHorizontalStretch(0);
-    sizePolicy2.setVerticalStretch(0);
-    sizePolicy2.setHeightForWidth(windowContent_widget->sizePolicy().hasHeightForWidth());
-    windowContent_widget->setSizePolicy(sizePolicy2);
-    verticalLayout_3 = new QVBoxLayout(windowContent_widget);
-    verticalLayout_3->setSpacing(0);
-    verticalLayout_3->setObjectName("verticalLayout_3");
-    verticalLayout_3->setContentsMargins(0, 0, 0, 0);
-    verticalLayout_2 = new QVBoxLayout();
-    verticalLayout_2->setObjectName("verticalLayout_2");
 
-    verticalLayout_3->addLayout(verticalLayout_2);
-
-
+    // 对windowcontent_widget进行竖直布局
+    windowcontent_VLayout = new QVBoxLayout(windowContent_widget);
+    windowcontent_VLayout->setSpacing(0);
+    windowcontent_VLayout->setObjectName("windowcontent_VLayout");
+    windowcontent_VLayout->setContentsMargins(0, 0, 0, 0);
+    // 加入总布局
     verticalLayout->addWidget(windowContent_widget);
 
+    TotalVLayout->addWidget(Content_widget);
 
-    verticalLayout_5->addWidget(Content_widget);
 
-
-    QMetaObject::connectSlotsByName(this);
-
-    this->setWindowTitle(QCoreApplication::translate("FramelessWindow", "Form", nullptr));
+    this->setWindowTitle("FramelessWindow");
 }
 
 void FramelessWindow::mouseReleaseEvent(QMouseEvent* event)

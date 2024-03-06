@@ -2,4 +2,9 @@
 **.sln
 **.vcxproj
 **.vcxproj.filters
+<<<<<<< HEAD
 **.vcxproj.user
+=======
+**.vcxproj.user
+x64/
+>>>>>>> 9a4f383 (update)

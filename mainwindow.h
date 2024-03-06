@@ -1,7 +1,5 @@
 ﻿/**************************************************
 **
-** Copyright (C) 2022 zhouxuan.
-** Contact: 微信公众号【周旋机器视觉】
 **
 ** 主窗口类，可以在该处实现自己的界面设计
 **
@@ -28,9 +26,6 @@
 #include <QGroupBox>
 #include <QStatusBar>
 
-QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
-QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow
 {

@@ -1,7 +1,5 @@
 ﻿/**************************************************
 **
-** Copyright (C) 2022 zhouxuan.
-** Contact: 微信公众号【周旋机器视觉】
 **
 ** titlebar自定义标题栏类，通过重写鼠标响应事件，实现以下功能：
 ** 1、拖动自定义标题栏可拖动窗口界面
@@ -30,6 +28,15 @@ TitleBar::TitleBar(QWidget *parent) :
     last_width = 1000;
     InitDesigner();
     restoreButton->setVisible(false);
+
+    connect(minimizeButton, &QToolButton::clicked, this, &TitleBar::on_minimizeButton_clicked);
+    connect(restoreButton, &QToolButton::clicked, this, &TitleBar::on_restoreButton_clicked);
+    connect(maximizeButton, &QToolButton::clicked, this, &TitleBar::on_maximizeButton_clicked);
+    connect(closeButton, &QToolButton::clicked, this, &TitleBar::on_closeButton_clicked);
+    connect(darkstyle_action, &QAction::triggered, this, &TitleBar::on_darkstyle_action_triggered);
+    connect(lightstyle_action, &QAction::triggered, this, &TitleBar::on_lightstyle_action_triggered);
+    connect(ubuntustyle_action, &QAction::triggered, this, &TitleBar::on_ubuntustyle_action_triggered);
+    connect(macosstyle_action, &QAction::triggered, this, &TitleBar::on_macosstyle_action_triggered);
 }
 
 TitleBar::~TitleBar()
@@ -198,8 +205,6 @@ void TitleBar::InitDesigner() {
     closeButton->setText(QCoreApplication::translate("titlebar", "...", nullptr));
 
     horizontalLayout_3->addLayout(gridLayout);
-
-    QMetaObject::connectSlotsByName(this);
 
     //创建下拉菜单
     QMenu *skinButton_menu = new QMenu(this);

@@ -1,7 +1,5 @@
 ﻿/**************************************************
 **
-** Copyright (C) 2022 zhouxuan.
-** Contact: 微信公众号【周旋机器视觉】
 **
 ** titlebar文件 负责自定义标题栏，标题栏的UI布局和样式可以完全自定义
 ** 除自定义的内容外，titlebar类还包含了窗口标题栏的常见功能，如双击标题栏
@@ -34,9 +32,6 @@ public:
     explicit TitleBar(QWidget *parent = nullptr);
     ~TitleBar();
     void InitDesigner();
-    //void setTitleText(const QString &text);
-    //void setNoteText(const QString &text);
-    // void setIcon(QString path);
 
 protected:
     virtual void changeEvent(QEvent *event);
@@ -53,23 +48,23 @@ protected:
 
 //UI界面控件的信号槽函数，可自定义重新设计
 private slots:
- void on_minimizeButton_clicked();
+     void on_minimizeButton_clicked();
 
- void on_restoreButton_clicked();
+     void on_restoreButton_clicked();
 
- void on_maximizeButton_clicked();
+     void on_maximizeButton_clicked();
 
- void on_closeButton_clicked();
+     void on_closeButton_clicked();
 
- void on_darkstyle_action_triggered();
+     void on_darkstyle_action_triggered();
 
- void on_lightstyle_action_triggered();
+     void on_lightstyle_action_triggered();
 
- void on_ubuntustyle_action_triggered();
+     void on_ubuntustyle_action_triggered();
 
- void on_macosstyle_action_triggered();
+     void on_macosstyle_action_triggered();
 
- void on_noteButton_clicked();
+     void on_noteButton_clicked();
 
 private:
 

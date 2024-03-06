@@ -1,8 +1,5 @@
 ﻿/**************************************************
 **
-** Copyright (C) 2022 zhouxuan.
-** Contact: 微信公众号【周旋机器视觉】
-**
 ** framelesswindow文件 将窗体设为了无边框窗口，并重写了窗体的鼠标响应事件
 ** 使其具备正常窗口的鼠标响应动作（窗体拖拽边框调整大小、窗体鼠标拖动等）
 ** 并将窗体和标题栏分离，在构造函数里动态的添加标题栏，使得标题栏可以方便的进行
@@ -69,15 +66,15 @@ private:
     QPoint dragPosition;
     Direction dir;
 
-    QVBoxLayout* verticalLayout_5;
+
+    QVBoxLayout* TotalVLayout;
     QWidget* Content_widget;
     QVBoxLayout* verticalLayout;
     QWidget* titlebarContent_widget;
-    QVBoxLayout* verticalLayout_4;
-    QHBoxLayout* horizontalLayout;
+    QHBoxLayout* titleHLayout;
     QWidget* windowContent_widget;
-    QVBoxLayout* verticalLayout_3;
-    QVBoxLayout* verticalLayout_2;
+    QVBoxLayout* windowcontent_VLayout;
+
 };
 
 #endif // FRAMELESSWINDOW_H
